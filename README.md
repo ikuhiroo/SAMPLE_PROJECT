@@ -1,6 +1,6 @@
 # SAMPLE_PROJECT  
 ## はじめに  
-● Python製コマンドラインツールのディレクトリ構成  
+● 引用元    
 [Python製コマンドラインツールのディレクトリ構成(1)](http://blog.masudak.net/entry/2015/01/13/234000)  
 [Python製コマンドラインツールのディレクトリ構成(2)](http://blog.masudak.net/entry/2015/01/15/223000)  
 [今まで作ったPython, Ruby, Bashの関数](http://blog.masudak.net/entry/2015/01/09/220000)  
