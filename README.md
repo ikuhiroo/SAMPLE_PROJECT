@@ -146,6 +146,11 @@ pytest用の設定を書いておく．
 >>pipはeasy_install と同様の機能を提供する  
 >>easy_installとの互換性がないので、使うのであればどちらか一方にした方が良い  
 
+>>eggについて  
+>>`easy_install hogehoge.egg`  
+>>インストールが実行されると，eggが展開されて所定の場所に置かれ，参照パスが設定される．  
+
+
 ・authorなどの必要な情報をSAMPLE_PROJECT/init.pyに以下のように書く．  
 importできるので，setup.pyの中で使用する．  
 
@@ -155,6 +160,26 @@ pythonのバージョンに制限を加え，再現性を高める．
 ・classifierの一覧  
 [（参考）classifierの一覧](https://pypi.org/pypi?%3Aaction=list_classifiers)  
 
+・setup関数内のフィールド   
+>name : ,  
+version= "{}.{}".format(__version__, __release__),  
+description='hogehoge tool',  
+long_description="""this supports to hogehoge.""",  
+author=__author__  
+author_email=__author_email__  
+url='https://github.com/masudak/hogehoge',  
+packages=['SAMPLE_PROJECT'],  
+py_modules=[],  
+zip_safe = (sys.version>="2.5"), #2.5の頃はディレクトリとしてegg作らないとまずかった？  
+scripts=['bin/command1','bin/command2'],  
+license='GNU Lesser General Public License v3 or later (LGPLv3+)',  
+keywords='',  
+platforms='Linux',  
+classifiers=[  
+'Intended Audience :: System Administrators',  
+'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',  
+'Natural Language :: Japanese',  
+'Programming Language :: Python :: 3.4',]  
 
 ## test_cov.sh  
 ローカルでコードを書いているときに実行する用．  
