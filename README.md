@@ -131,7 +131,30 @@ pytest用の設定を書いておく．
 これらは前述したprepare.shでインストールされる．  
 
 ## setup.py  
-`pip install -e .`したいので，簡単に作っておく．  
+前までは， `pip install -e .`したいので，簡単に作っておく．  
+
+今後は，`python setup.py install`でインストールする．  
+>setupスクリプトについて  
+>[（参考）pythonパッケージ管理について](http://hikm.hatenablog.com/entry/2014/07/11/082332)  
+>pythonモジュールを配布する際に必ず必要なスクリプトファイル．  
+>ファイル内部ではsetup関数を使ってモジュールをビルドしている．
+>setup関数はPython標準モジュールのdistutilsで定義されている．  
+>distutilsを拡張するために開発されたのがsetuptools．  
+>>easy_installとpip  
+>>easy_installはsetuptoolsを便利に使うためのスクリプト  
+>>pip は easy_installを置き換えて更に便利にしようとして開発されたもの  
+>>pipはeasy_install と同様の機能を提供する  
+>>easy_installとの互換性がないので、使うのであればどちらか一方にした方が良い  
+
+・authorなどの必要な情報をSAMPLE_PROJECT/init.pyに以下のように書く．  
+importできるので，setup.pyの中で使用する．  
+
+・バリデーションの設定  
+pythonのバージョンに制限を加え，再現性を高める．  
+
+・classifierの一覧  
+[（参考）classifierの一覧](https://pypi.org/pypi?%3Aaction=list_classifiers)  
+
 
 ## test_cov.sh  
 ローカルでコードを書いているときに実行する用．  
@@ -150,4 +173,5 @@ SAMPLE_PROJECT/配下にあるファイル単位でテスト用のファイル�
 _settings.append_home_to_path(__file__)`  
 そうすることで，テストファイルの中でもSAMPLE_PROJECTトップからのimportが可能になり，  
 「pip install -e .」と同じような機能を果たしてくれる．  
+
 
